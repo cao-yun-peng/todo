@@ -151,6 +151,7 @@ def update_todo(
 
     todo.title = todo_data.title
     todo.completed = todo_data.completed
+    todo.description = todo_data.description
 
     db.commit()
     db.refresh(todo)

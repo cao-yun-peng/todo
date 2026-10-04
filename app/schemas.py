@@ -34,6 +34,7 @@ class TodoCreate(BaseModel):
 
 class TodoUpdate(BaseModel):
     title: str
+    description: str | None = None
     completed: bool
 
 
