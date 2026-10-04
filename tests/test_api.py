@@ -250,3 +250,23 @@ def test_user_cannot_access_other_users_todo():
     )
 
     assert response.status_code == 404
+
+def test_create_todo_with_description():
+
+    headers = register_and_login()
+
+    response = client.post(
+        "/todos",
+        json={
+            "title": "学习 Alembic",
+            "description": "理解数据库迁移",
+        },
+        headers=headers,
+    )
+
+    assert response.status_code == 201
+
+    data = response.json()
+
+    assert data["title"] == "学习 Alembic"
+    assert data["description"] == "理解数据库迁移"

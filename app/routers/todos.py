@@ -49,6 +49,7 @@ def create_todo(
 
     todo = Todo(
         title=todo_data.title,
+        description=todo_data.description,
         completed=False,
         owner_id=current_user.id,
     )

@@ -29,6 +29,7 @@ class TokenResponse(BaseModel):
 
 class TodoCreate(BaseModel):
     title: str
+    description: str | None = None
 
 
 class TodoUpdate(BaseModel):
@@ -39,6 +40,7 @@ class TodoUpdate(BaseModel):
 class TodoResponse(BaseModel):
     id: int
     title: str
+    description: str | None = None
     completed: bool
     owner_id: int
 
