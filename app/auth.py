@@ -1,7 +1,9 @@
 from datetime import datetime, timedelta, timezone
+import os
 
 import jwt
 from jwt.exceptions import InvalidTokenError
+from dotenv import load_dotenv
 
 from fastapi import (
     Depends,
@@ -44,7 +46,12 @@ def verify_password(
 # 2. JWT 配置
 # ============================================================
 
-SECRET_KEY = "change-this-before-production"
+load_dotenv()
+
+SECRET_KEY = os.getenv(
+    "SECRET_KEY",
+    "change-this-before-production",
+)
 
 ALGORITHM = "HS256"
 

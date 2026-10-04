@@ -59,3 +59,8 @@ class Todo(Base):
     owner: Mapped["User"] = relationship(
         back_populates="todos"
     )
+
+    description: Mapped[str | None] = mapped_column(
+    String(500),
+    nullable=True,
+)
